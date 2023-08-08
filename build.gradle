@@ -1,0 +1,65 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.14'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'org.ownbit'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+ext {
+	springBootJavaFXVersion = '2.1.6'
+	springBootJavaFXTestVersion = '1.3.0'
+	commonsLang3 = '3.13.0'
+	commonsCollections4 = '4.4'
+}
+	
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	/* Starter for using Java Mail and Spring Framework's email sending support */
+	implementation("org.springframework.boot:spring-boot-starter-mail")
+	
+	/* Support for Spring Boot and JavaFX 8 */
+	implementation("de.roskenet:springboot-javafx-support:${springBootJavaFXVersion}")
+	
+	/* Test support for Spring Boot and JavaFX 8 */
+	implementation("de.roskenet:springboot-javafx-test:${springBootJavaFXTestVersion}")
+	
+	/* Apache Commons Lang, a package of Java utility classes */
+	implementation("org.apache.commons:commons-lang3:${commonsLang3}")	
+	
+	/* Apache Commons Collections package contains types that extend and augment the Java Collections Framework. */
+	implementation("org.apache.commons:commons-collections4:${commonsCollections4}")	
+	
+	/* Spice up your java: Automatic Resource Management, automatic generation of getters, setters, equals, hashCode and toString, and more! */
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+}
+
+jar {
+	from('src/main/resources') {
+      include '*.*'
+   	}
+   
+    manifest {
+        attributes 'Main-Class': 'org.ownbit.email.springfx.EmailJavaFX'
+    }
+}
+
+//javafx {
+//    version = "12.0.2"
+//    modules = [ 'javafx.base', 'javafx.controls', 'javafx.fxml', 'javafx.web', 'javafx.graphics', 'javafx.media', 'javafx.swing' ]
+//}
+
+//mainClassName = 'org.openjfx.MainApp'

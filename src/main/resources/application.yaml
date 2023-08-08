@@ -1,0 +1,42 @@
+spring:
+  jmx: 
+    enabled: false #We don't need JMX here - disabling it allows for faster startup
+  main:
+    banner-mode: "off"
+    
+  mail:
+    host:
+    port:
+    username:
+    password:
+    properties:
+      mail.protocol: smtp
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
+      mail.smtp.ssl.enable: true
+      mail.smtp.ehlo: true
+      mail.debug: true
+    testConnection: true
+
+javafx:
+  title: Email Client JavaFX
+  stage:
+    resizable: false
+    width: 1024 # defaults to the size of the scene
+    height: 760
+    style: DECORATED # see: javafx.stage.StageStyle
+          
+logging:
+  level:
+    org.springframework.mail: DEBUG
+    de.awinta.email.springfx: DEBUG
+    com.sun.mail: DEBUG
+    javax.mail: DEBUG
+  pattern:
+    level: DEBUG
+    console: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%F %L] %c{1} - %msg%n"
+    file: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%F %L] %c{1} - %msg%n"
+  file:
+    name: ./email-client.log
+  

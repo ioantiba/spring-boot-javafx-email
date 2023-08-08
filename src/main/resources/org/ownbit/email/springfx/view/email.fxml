@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.web.HTMLEditor?>
+
+<VBox prefHeight="760.0" prefWidth="1024.0" 
+	xmlns="http://javafx.com/javafx/9" 
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="org.ownbit.email.springfx.controller.EmailController">
+	
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="760.0" prefWidth="1024.0" stylesheets="@email.css" VBox.vgrow="ALWAYS">
+      <children>
+            <HTMLEditor fx:id="emailEditor" layoutX="10.0" layoutY="221.0" prefHeight="300.0" prefWidth="1002.0" />
+            <Label id="label-from" layoutX="18.0" layoutY="16.0" text="From:" />
+            <TextField fx:id="fromEmailText" layoutX="84.0" layoutY="11.0" prefHeight="26.0" prefWidth="563.0" />
+            <Label layoutX="666.0" layoutY="30.0" text="To" />
+            <TextArea fx:id="toRecipientsTextArea" layoutX="694.0" layoutY="27.0" prefHeight="147.0" prefWidth="321.0" wrapText="true" />
+            <Label layoutX="11.0" layoutY="51.0" text="Subject:" />
+            <TextField id="subjectEmail" fx:id="subjectEmailText" layoutX="83.0" layoutY="47.0" prefHeight="26.0" prefWidth="563.0" />
+            <Label layoutX="10.0" layoutY="88.0" text="Attached:" />
+            <TextField id="attachedFiles" fx:id="attachedFileText" layoutX="83.0" layoutY="83.0" prefHeight="26.0" prefWidth="563.0" />
+            <Button fx:id="attachFileBtn" defaultButton="true" disable="true" layoutX="85.0" layoutY="119.0" mnemonicParsing="false" onAction="#onAttachFileToEmail" text="Attach File..." />
+            <Button fx:id="loadRecipientsBtn" layoutX="695.0" layoutY="185.0" mnemonicParsing="false" onAction="#onLoadRecipientsFromFile" text="Load recipients from .txt file" />
+            <TextArea fx:id="htmlCodeTextArea" layoutX="11.0" layoutY="579.0" prefHeight="116.0" prefWidth="666.0" wrapText="true" />
+            <Button fx:id="sendEmailBtn" layoutX="691.0" layoutY="537.0" mnemonicParsing="false" onAction="#onSendEmail" text="Send email" />
+            <Button fx:id="htmlCodeBtn" layoutX="173.0" layoutY="190.0" mnemonicParsing="false" onAction="#onGetHtmlCode" text="Show HTML Raw code" />
+            <Label id="label-to-comment" layoutX="736.0" layoutY="8.0" text="Add each email address to a new line" />
+            <Button fx:id="loadHtmlBtn" layoutX="27.0" layoutY="705.0" mnemonicParsing="false" onAction="#onLoadHtmlByCode" text="Load HTML Raw code into 'Email body'" />
+            <TextArea fx:id="textAreaStatus" layoutX="693.0" layoutY="578.0" prefHeight="116.0" prefWidth="321.0" wrapText="true" />
+            <Label layoutX="13.0" layoutY="195.0" text="Email body as HTML" />
+            <Label layoutX="13.0" layoutY="553.0" text="Body content as HTML Raw after click 'Show HTML Raw code' button " />
+            <ProgressBar fx:id="progressBar" layoutX="789.0" layoutY="540.0" prefHeight="20.0" prefWidth="212.0" progress="0.00" visible="true" />
+            <Button fx:id="loadHtmlTemplateBtn" layoutX="344.0" layoutY="190.0" mnemonicParsing="false" onAction="#onLoadHtmlTemplate" text="Load HTML template" visible="false"/>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

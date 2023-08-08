@@ -1,0 +1,12 @@
+#label-to-comment {
+	-fx-text-fill: #a40000;
+	-fx-font-size: 13px;
+}
+
+.root {
+	-fx-background-color: #eeeeec;
+}
+
+HTMLEditor {
+	/* -fx-border-color: #a40000; */
+}
